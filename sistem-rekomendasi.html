@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>Sistem Rekomendasi Perumahan</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <link href="assets/img/favicon.png" rel="icon">
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="assets/vendor/animate.css/animate.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+  <!-- Main CSS File -->
+  <link href="assets/css/style.css" rel="stylesheet">
+</head>
+
+<body>
+
+  <!-- ======= Header/Navbar ======= -->
+  <nav class="navbar navbar-default navbar-trans navbar-expand-lg fixed-top">
+    <div class="container">
+      <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#navbarDefault"
+        aria-controls="navbarDefault" aria-expanded="false" aria-label="Toggle navigation">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <a class="navbar-brand text-brand" href="index.html">REVITOPER<span class="color-b"> SETIABUDI LAND</span></a>
+
+      <div class="navbar-collapse collapse justify-content-lg-end" id="navbarDefault">
+        <ul class="navbar-nav">
+
+          <li class="nav-item">
+            <a class="nav-link " href="index.html">Home</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link active" href="sistem-rekomendasi.html">Sistem Rekomendasi</a>
+          </li>
+
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Virtual Tour</a>
+            <div class="dropdown-menu">
+              <a class="dropdown-item " href="./virtual-tour/qianna-residence-2/qr2.html" target="_blank">Qianna Residence 2</a>
+              <a class="dropdown-item " href="./virtual-tour/bukit-cibadak-asri/bca.html" target="_blank">Bukit Cibadak Asri</a>
+              <a class="dropdown-item " href="./virtual-tour/goalpara-hills/gh.html" target="_blank">Goalpara Hills</a>
+              <a class="dropdown-item " href="./virtual-tour/bukit-pinus-banjaran/bpb.html" target="_blank">Bukit Pinus Banjaran</a>
+            </div>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link " href="contact.html">Contact</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav><!-- End Header/Navbar -->
+
+  <main id="main">
+
+    <!-- ======= Intro Single ======= -->
+    <section class="intro-single">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12 col-lg-8">
+            <div class="title-single-box">
+              <h1 class="title-single">Sistem Rekomendasi Perumahan</h1>
+              <span class="color-text-a">Temukan Rumah Sesuai Dengan Karakteristik dan Preferensi Kamu</span>
+            </div>
+          </div>
+          <div class="col-md-12 col-lg-4">
+            <nav aria-label="breadcrumb" class="breadcrumb-box d-flex justify-content-lg-end">
+              <ol class="breadcrumb">
+                <li class="breadcrumb-item">
+                  <a href="index.html">Home</a>
+                </li>
+                <li class="breadcrumb-item active" aria-current="page">
+                  Sistem Rekomendasi
+                </li>
+              </ol>
+            </nav>
+          </div>
+        </div>
+      </div>
+    </section><!-- End Intro -->
+
+    <!-- ======= Recommender System ======= -->
+    <section class="news-single nav-arrow-b">
+      <div class="container">
+        <div class="row">
+          <div class="post-content color-text-a">
+            <p class="post-content">
+              "Yuk, temukan rumah impianmu dengan lebih mudah! Isi beberapa pertanyaan di bawah ini dan dapatkan
+              rekomendasi perumahan yang sesuai dengan karakteristik dan preferensimu. Mulai petualanganmu menuju rumah
+              idaman sekarang!".
+            </p>
+          </div>
+        </div>
+        <div class="col-md-10 offset-md-1 col-lg-10 offset-lg-1">
+          <form id="myForm" class="form-a" hx-post="http://127.0.0.1:8000/model-prediction"> <!-- endpoint -->
+            <div class="row">
+              <div class="col-md-12 mb-3">
+                <div class="form-group">
+                  <label for="inputUsia">1. Berapa usia anda saat ini? </label>
+                  <input type="number" name="usia" class="form-control form-control-a" id="inputUsia"
+                    placeholder="Masukkan Angka " required>
+                </div>
+              </div>
+              <div class="col-md-12 mb-3">
+                <div class="form-group">
+                  <label for="inputStatusPernikahan">2. Bagaimana status Pernikahan anda saat ini? </label>
+                  <select name="status_pernikahan" class="form-control form-select form-control-a"
+                    id="inputStatusPernikahan" required>
+                    <option value="Sudah Menikah" >Sudah Menikah</option>
+                    <option value="Lajang" >Lajang</option>
+                  </select>
+                </div>
+              </div>
+              <div class="col-md-12 mb-3">
+                <div class="form-group">
+                  <label for="inputAnak">3. Berapa jumlah anak yang anda miliki? </label>
+                  <input type="number" name="jumlah_anak" class="form-control form-control-a" id="inputAnak"
+                    placeholder="Masukkan Angka " required>
+                </div>
+              </div>
+              <div class="col-md-12 mb-3">
+                <div class="form-group">
+                  <label for="inputGaji">4. Berapa pendapatan/bulan yang anda miliki? </label>
+                  <select name="pendapatan" class="form-control form-select form-control-a" id="inputGaji" required>
+                    <option value="Rp. 2.000.000 - Rp. 5.000.000">Rp. 2.000.000 - Rp. 5.000.000</option>
+                    <option value="Rp. 5.000.000 - Rp. 10.000.000">Rp. 5.000.000 - Rp. 10.000.000</option>
+                    <option value="> RP. 10.000.000">&gt; RP. 10.000.000</option>
+                  </select>
+                </div>
+              </div>
+              <div class="col-md-12 mb-3">
+                <div class="form-group">
+                  <label>5. Fasilitas seperti apa yang Anda inginkan? (Boleh Pilih Lebih Dari Satu)</label>
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" name="fasilitas[]" value="CCTV 24 Jam & Security"
+                      id="fasilitas1">
+                    <label class="form-check-label" for="fasilitas1">CCTV 24 Jam & Security</label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" name="fasilitas[]" value="One Gate System"
+                      id="fasilitas2">
+                    <label class="form-check-label" for="fasilitas2">One Gate System</label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" name="fasilitas[]" value="Jalan Utama Yang Lebar"
+                      id="fasilitas3">
+                    <label class="form-check-label" for="fasilitas3">Jalan Utama Yang Lebar</label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" name="fasilitas[]"
+                      value="Jalan Menggunakan Paving Block" id="fasilitas4">
+                    <label class="form-check-label" for="fasilitas4">Jalan Menggunakan Paving Block</label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" name="fasilitas[]" value="Taman Bermain Anak"
+                      id="fasilitas5">
+                    <label class="form-check-label" for="fasilitas5">Taman Bermain Anak</label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" name="fasilitas[]" value="TK" id="fasilitas6">
+                    <label class="form-check-label" for="fasilitas6">TK</label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" name="fasilitas[]" value="Masjid" id="fasilitas7">
+                    <label class="form-check-label" for="fasilitas7">Masjid</label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" name="fasilitas[]" value="Garden Lounge"
+                      id="fasilitas8">
+                    <label class="form-check-label" for="fasilitas8">Garden Lounge</label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" name="fasilitas[]" value="Smart Door Lock"
+                      id="fasilitas9">
+                    <label class="form-check-label" for="fasilitas9">Smart Door Lock</label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" name="fasilitas[]" value="Smart Home System"
+                      id="fasilitas10">
+                    <label class="form-check-label" for="fasilitas10">Smart Home System</label>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-12 mb-3">
+                <div class="form-group">
+                  <label>6. Bagaimaana preferensi lingkungan yang anda inginkan? (Boleh Pilih Lebih Dari Satu)</label>
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" name="preferensi[]" value="View Pegunungan"
+                      id="preferensi1">
+                    <label class="form-check-label" for="preferensi1">View Pegunungan</label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" name="preferensi[]" value="Suasana Sejuk Dan Asri"
+                      id="preferensi2">
+                    <label class="form-check-label" for="preferensi2">Suasana Sejuk Dan Asri</label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" name="preferensi[]" value="Dekat Dengan Pusat Kota"
+                      id="preferensi3">
+                    <label class="form-check-label" for="preferensi3">Dekat Dengan Pusat Kota</label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" name="preferensi[]" value="Dekat Dengan Exit Tol"
+                      id="preferensi4">
+                    <label class="form-check-label" for="preferensi4">Dekat Dengan Exit Tol</label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" name="preferensi[]" value="Dekat Dengan ATM Center"
+                      id="preferensi5">
+                    <label class="form-check-label" for="preferensi5">Dekat Dengan ATM Center</label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" name="preferensi[]"
+                      value="Dekat Dengan Sarana Pendidikan" id="preferensi6">
+                    <label class="form-check-label" for="preferensi6">Dekat Dengan Sarana Pendidikan</label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" name="preferensi[]"
+                      value="Dekat Dengan Sarana Kesehatan" id="preferensi7">
+                    <label class="form-check-label" for="preferensi7">Dekat Dengan Sarana Kesehatan</label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" name="preferensi[]"
+                      value="Dekat Dengan Sarana Perbelanjaan" id="preferensi8">
+                    <label class="form-check-label" for="preferensi8">Dekat Dengan Sarana Perbelanjaan</label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" name="preferensi[]"
+                      value="Dekat Dengan Tempat Ibadah" id="preferensi9">
+                    <label class="form-check-label" for="preferensi9">Dekat Dengan Tempat Ibadah</label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" name="preferensi[]"
+                      value="Dekat Dengan Tempat Kuliner" id="preferensi10">
+                    <label class="form-check-label" for="preferensi10">Dekat Dengan Tempat Kuliner</label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" name="preferensi[]"
+                      value="Dekat Dengan Tempat Wisata" id="preferensi11">
+                    <label class="form-check-label" for="preferensi11">Dekat Dengan Tempat Wisata</label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" name="preferensi[]"
+                      value="Dilalui Dengan Kendaraan Umum" id="preferensi12">
+                    <label class="form-check-label" for="preferensi12">Dilalui Dengan Kendaraan Umum</label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" name="preferensi[]" value="Dilalui Dengan SPBU"
+                      id="preferensi13">
+                    <label class="form-check-label" for="preferensi13">Dilalui Dengan SPBU</label>
+                  </div>
+                </div>
+              </div>
+              <form id="myForm">
+              <div class="col-md-12">
+                <button type="submit" class="btn btn-a">Submit</button>
+              </div>
+              </form>
+            </div>
+          </form>
+          <hr class="custom-hr"> <!-- Garis baru -->
+          <div class="col-md-12 col-lg-12">
+            <div class="title-single-box">
+              <h1 class="title-single">Hasil Rekomendasi Perumahan</h1>
+              <div id="recommendation-response">
+                <p class="post-content">
+                  Nama Perumahan :
+                </p>
+                <p class="post-content">
+                  Jenis Rumah :
+                </p>
+                <p class="post-content">
+                  Tipe Rumah :
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      </div>
+      </div>
+    </section><!-- End Recommender System -->
+
+  </main><!-- End #main -->
+
+  <!-- ======= Footer ======= -->
+  <section class="section-footer">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-12 col-md-14">
+          <div class="widget-a">
+            <div class="w-header-a">
+              <h3 class="w-title-a text-brand">Setiabudiland</h3>
+            </div>
+            <div class="w-body-a">
+              <p class="w-text-a color-text-a">
+                Setiabudi Land merupakan perusahaan pengembang properti yang berdiri sejak 27 November 2009. 
+                Kami menawarkan beragam proyek perumahan, mulai dari subsidi hingga komersil, seperti 
+                Setiabudi Estate, Qianna Residence 2, Bukit Cibadak Asri, Goalpara Hills, dan Bukit Pinus Banjaran. 
+                Dengan fokus pada kualitas dan kepuasan pelanggan, Setiabudiland terus berinovasi dalam industri 
+                properti.
+              </p>
+            </div>
+            <div class="w-footer-a">
+              <ul class="list-unstyled">
+                <li class="color-a">
+                  <span class="color-text-a">Phone .</span> (0266) 217751
+                </li>
+                <li class="color-a">
+                  <span class="color-text-a">Email .</span> marketing@setiabudiland.id
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <footer>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <nav class="nav-footer">
+            <ul class="list-inline">
+              <li class="list-inline-item">
+                <a href="index.html">Home</a>
+              </li>
+              <li class="list-inline-item">
+                <a href="sistem-rekomendasi.html">Sistem Rekomendasi</a>
+              </li>
+              <li class="list-inline-item">
+                <a href="contact.html">Contact</a>
+              </li>
+            </ul>
+          </nav>
+          <div class="socials-a">
+            <ul class="list-inline">
+              <li class="list-inline-item">
+                <a href="https://wa.me/628111190412">
+                  <i class="bi bi-whatsapp" aria-hidden="true"></i>
+                </a>
+              </li>
+              <li class="list-inline-item">
+                <a href="https://www.instagram.com/setiabudiland/">
+                  <i class="bi bi-instagram" aria-hidden="true"></i>
+                </a>
+              </li>
+            </ul>
+          </div>
+          <div class="copyright-footer">
+            <p class="copyright color-text-a">
+              2024 &copy; Copyright
+              <span class="color-a">Revitoper</span> All Rights Reserved.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer><!-- End  Footer -->
+
+  <div id="preloader"></div>
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
+      class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Vendor JS Files -->
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="assets/vendor/php-email-form/validate.js"></script>
+
+  <!-- Main JS File -->
+  <script src="assets/js/main.js"></script>
+  <script src="https://unpkg.com/htmx.org/dist/htmx.min.js"></script>
+
+  <script>
+          document.getElementById('myForm').addEventListener('htmx:afterSwap', function(event) {
+            const response = event.detail.xhr.response;
+            const responseData = JSON.parse(response);
+            
+            // Update HTML content with the response data
+            document.getElementById('recommendation-response').innerHTML = `
+              <p class="post-content">Nama Perumahan : ${responseData.namaPerumahan}</p>
+              <p class="post-content">Jenis Rumah : ${responseData.jenisRumah}</p>
+              <p class="post-content">Tipe Rumah : ${responseData.tipeRumah}</p>
+            `;
+            document.getElementById('myForm').style.color = 'white';
+          });
+  </script>
+</body>
+
+</html>
